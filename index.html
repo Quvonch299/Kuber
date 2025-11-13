@@ -1,21 +1,138 @@
 <!doctype html>
-<html>
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Партнёрская программа</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2388ff;
+            --muted: rgba(35, 136, 255, 0.12);
+        }
+
+        body {
+            background: #f6f9ff;
+            font-family: "Inter", system-ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: "Rubik", "Inter", sans-serif;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] },
+                    colors: { primary: '#2563eb', darkBlue: '#1e40af' },
+                },
+            },
+        }
+    </script>
 </head>
 
-<body>
-    <h1 class="text-5xl font-bold underline text-center my-10">
-        Спасибо, что выбрали меня.
+<body class="flex flex-col items-center justify-start min-h-screen gap-16 py-20">
+    <section
+        class="relative w-full max-w-7xl bg-white rounded-2xl shadow-[0_8px_24px_rgba(17,24,39,0.06)] overflow-hidden border border-transparent">
+        <div
+            class="absolute -left-12 -top-12 w-[360px] h-[360px] rounded-full bg-gradient-to-br from-blue-50/40 to-transparent">
+        </div>
+        <div class="relative z-10 grid grid-cols-12 gap-8 p-10 md:p-14">
+            <div class="col-span-12 md:col-span-5">
+                <h1 class="heading-font text-[34px] md:text-[40px] font-extrabold leading-[0.95] text-gray-900">
+                    Ценим <span class="text-[var(--blue)]">каждого</span><br>
+                    <span class="block">партнера!</span>
+                </h1>
+            </div>
+            <div class="col-span-12 md:col-span-7 space-y-4 text-gray-700 text-[15.5px] leading-relaxed">
+                <div class="flex gap-4 items-start">
+                    <img src="./imgs/starblue.svg" class="w-5 mt-1" alt="⭐" />
+                    <p>У вас <span class="text-[var(--blue)] font-medium">свободный</span> и удалённый график</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <img src="./imgs/starblue.svg" class="w-5 mt-1" alt="⭐" />
+                    <p>Программу можно совмещать с другой работой<br class="hidden md:block" />
+                        или сделать её <span class="text-[var(--blue)] font-medium">основным</span> источником дохода
+                    </p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <img src="./imgs/starblue.svg" class="w-5 mt-1" alt="⭐" />
+                    <p>Вам не обязательно знать контейнерный рынок.<br class="hidden md:block" />
+                        Главное — <span class="text-[var(--blue)] font-medium">уметь договариваться.</span><br />
+                        Всё остальное мы возьмём на себя</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class=" bg-gradient-to-r from-primary to-darkBlue text-white rounded-3xl w-full max-w-7xl  md:p-12 flex md:flex-row items-center gap-10 shadow-lg overflow-hidden">
+        <div class="flex-1 space-y-5 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
+                Стабильно и долгосрочно!
+            </h2>
+            <p class="text-white/80 leading-relaxed">
+                Рассчитайте свой приблизительный <span class="font-semibold">доход</span>,<br>
+                и мы поможем вам его получить.
+            </p>
+            <div class="mt-6 relative">
+                <input id="clientRange" type="range" min="1" max="15" value="5"
+                    class="w-full appearance-none h-2 bg-blue-300 rounded-full outline-none cursor-pointer accent-white" />
+                <div id="sliderThumb"
+                    class="absolute top-1/2 left-[33%] -translate-y-1/2 flex items-center justify-center transition-all duration-200">
+                    <div
+                        class="bg-white rounded-full border-4 border-blue-600 w-7 h-7 flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 text-sm text-white/90">
+                Клиентов от вас: <span id="clientCount" class="font-semibold">5</span><br>
+                <span class="text-white/60 text-xs">*Учитывая, что в среднем клиент даёт от 28 контейнеров в
+                    месяц</span>
+            </div>
+            <div class="flex gap-[95px] items-center">
+                <button
+                    class="mt-6 bg-white text-blue-700 font-semibold rounded-full px-8 py-3 shadow-md hover:bg-blue-50 transition">
+                    Стать партнёром
+                </button>
+                <div
+                    class="   ">
+                    <p id="incomeValue" class="text-5xl font-extrabold">168 000 ₽</p>
+                    <p class="text-white/80 font-medium text-sm mt-1">ВАШ ДОХОД В МЕСЯЦ*</p>
+                </div>
+            </div>
+        </div>
+        <div>
 
-    </h1>
+            
+            
+            <img class="h-[481px] " src="./imgs/person2.png" alt="person"  />
+        </div>
+    </section>
+    <script>
+        const range = document.getElementById('clientRange');
+        const clientCount = document.getElementById('clientCount');
+        const incomeValue = document.getElementById('incomeValue');
+        const thumb = document.getElementById('sliderThumb');
+
+        range.addEventListener('input', () => {
+            const value = parseInt(range.value);
+            const income = value * 33600;
+            clientCount.textContent = value;
+            incomeValue.textContent = income.toLocaleString('ru-RU') + ' ₽';
+            const percent = ((value - 1) / (range.max - 1)) * 100;
+            thumb.style.left = `calc(${percent}% - 10px)`;
+        });
+    </script>
+
 </body>
-<script src="./main.app.js"></script>
 
 </html>
